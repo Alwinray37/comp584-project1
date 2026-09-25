@@ -1,229 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Roble Appliance Repair | Same-Day Service</title>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" lang="en">
+	<title>Roble Email Campaign Project – Comp584</title>
+	<style>
+		*{
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+		body{
+			font-family: Georgia, 'Times New Roman', Times, serif;
+			width: 100%;
+			min-height: 100vh;
+			background-color: rgb(245, 237, 220);
+			padding: 2rem 0;
+		}
+		.email-wrapper{
+			outline: 2px solid black;
+			margin: 0 auto;
+			background-color: white;
+			/* padding: 1rem; */
+			border-spacing: 0;
+		}
+		td{
+			padding-bottom: 1rem;
+		}
+		#logo{
+			width: 350px;
+		}
+		li{
+			list-style: none;
+		}
+		img{
+			width: 100%;
+		}
+		.two-col-container{
+			width: 100%;
+			border-collapse: collapse;
+			border-spacing: 0;
+		}
+		.two-col-container td{
+			width: 50%;
+		}
+		.two-col-container h1{
+			margin: 1rem;
+		}
 
-		<style>
-			/* Email resets */
-			body,
-			table,
-			td,
-			a {
-				-webkit-text-size-adjust: 100%;
-				-ms-text-size-adjust: 100%;
-			}
-			table {
-				border-collapse: collapse;
-				border-spacing: 0;
-			}
-			td {
-				padding: 0;
-			}
-			img {
-				border: 0;
-				height: auto;
-				line-height: 100%;
-				outline: none;
-				text-decoration: none;
-			}
-			body {
-				width: 100%;
-				margin: 0;
-				padding: 0;
-				background-color: #e9eef0;
-			}
-			/* Email layout */
-			.email-wrapper {
-				width: 100%;
-				background-color: #e9eef0;
-			}
-			.email-content {
-				text-align: center;
-			}
-			.email-container {
-				width: 600px;
-				max-width: 600px;
-				margin: 0 auto;
-				background-color: #fffdf8;
-			}
-			/* Email content */
-			.brand-section {
-				padding: 28px 24px 16px;
-				text-align: center;
-			}
-			.logo-image {
-				display: block;
-				width: 100px;
-				height: 100px;
-				margin: 0 auto;
-				border-radius: 50%;
-				object-fit: cover;
-			}
-			.headline-section {
-				padding: 10px 36px 26px;
-				text-align: center;
-			}
-			.headline {
-				margin: 0;
-				color: #173b3f;
-				font-family: Georgia, "Times New Roman", serif;
-				font-size: 34px;
-				line-height: 1.15;
-			}
-			.hero-image {
-				display: block;
-				width: 100%;
-				max-width: 600px;
-				height: auto;
-			}
-			.intro-section {
-				padding: 30px 48px 16px;
-				color: #294346;
-				font-family: Arial, sans-serif;
-				font-size: 16px;
-				line-height: 1.6;
-			}
-			.intro-section p,
-			.footer-section p {
-				margin: 0 0 14px;
-			}
-			.action-section {
-				padding: 16px 24px 32px;
-				text-align: center;
-			}
-			.cta-button {
-				display: inline-block;
-				padding: 16px 28px;
-				border: 2px solid #173b3f;
-				border-radius: 5px;
-				background-color: #f2a23a;
-				color: #173b3f;
-				font-family: Arial, sans-serif;
-				font-size: 16px;
-				font-weight: bold;
-				line-height: 1;
-				text-decoration: none;
-				box-shadow: 4px 4px 0px black;
-			}
-			.cta-button:hover {
-				transform: scale(1.05);
-				box-shadow: 6px 6px 0px black;
-			}
-			.background-callout {
-				padding: 42px 36px;
-				background-color: #24545a;
-				background-image: linear-gradient(rgba(23, 59, 63, 0.78), rgba(23, 59, 63, 0.78)), url("images/appliance-bg-photo.jpg");
-				background-position: center;
-				background-size: cover;
-				color: #ffffff;
-				text-align: center;
-			}
-			.background-callout h2 {
-				margin: 0 0 10px;
-				font-family: Georgia, "Times New Roman", serif;
-				font-size: 28px;
-				line-height: 1.2;
-			}
-			.background-callout p {
-				margin: 0;
-				font-family: Arial, sans-serif;
-				font-size: 16px;
-				line-height: 1.5;
-			}
-			.footer-section {
-				padding: 24px;
-				background-color: #173b3f;
-				color: #e8f2ef;
-				font-family: Arial, sans-serif;
-				font-size: 13px;
-				line-height: 1.5;
-				text-align: center;
-			}
-			.footer-section p:last-child {
-				margin-bottom: 0;
-			}
-			.footer-section a {
-				color: #f6c56d;
-			}
+		.three-col-container{
+			/* background-color: yellow; */
+			border-spacing: 1rem;
+		}
+		.three-col-container td{
+			vertical-align: top;
+			border: 2px solid black;
+			width: 33.33%;
+		}
+		.service-image{
+			width: 100%;
+			height: 180px;
+			object-fit: cover;
+			display: block;
+		}
+		.contact-btn{
+			padding: 1rem;
+			font-weight: bold;
+			border: 2px solid black;
+			box-shadow: 0 0 0 0;
+			background-color: #213F2A;
+			color: whitesmoke;
+		}
+		.contact-btn:hover{
+			transform: translate(-2px);
+			transition: 0.25s ease-in-out;
+			box-shadow: 4px 4px 0 0 black;
+			cursor: pointer;
+		}
+		h2{
+			margin: 1rem;
+		}
+		p{
+			margin: 1rem;
+		}
+		ul{
+			margin: 1rem;
+		}
+		.cta-row td{
+			text-align: center;
+		}
 
-			@media screen and (max-width: 620px) {
-				.email-container {
-					width: 100% !important;
-					max-width: 100% !important;
-				}
+		tfoot{
+			background-color: #8A6B4C;
+			color: whitesmoke;
+			height: 100%;
+		}
+		tfoot td{
+			padding: 0;
+		}
+	</style>
+</head>
+<body>
+	<table class="email-wrapper" width="80%" cellpadding="0" cellspacing="0">
+		<!-- header rows -->
+		<tr>
+			<td style="text-align: center;"><img id="logo" src="/images/logo1.png" alt="company logo"></td>
+		</tr>
+		<!-- two column container -->
+		<tr>
+			<td>
+				<table class="two-col-container" width="100%">
+					<tr>
+						<!-- col1 -->
+						<td>
+							<h1>Is your appliance giving you trouble?</h1>
+							<p>
+								We have been around for a long time servicing home appliances since 1999. We repair a wide range of household appliances, from kitchen and bathroom equipment to air-conditioning units and small electronic appliances. Whatever the issue, we provide dependable service to help keep your home running smoothly.
+							</p>
+						</td>
+						<!-- col2 -->
+						<td>
+							<img src="/images/appliance-bg-photo.jpg" alt="">
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
 
-				.intro-section {
-					padding-right: 24px !important;
-					padding-left: 24px !important;
-				}
+		<!-- 3 column container -->
+		<tr>
+			<td>
+				<h2>Here are the main appliances we service:</h2>
+				<table width="100%" class="three-col-container">
+					<tr>
+						<!-- col1 -->
+						<td>
+							<img class="service-image" src="/images/fridge.jpeg" alt="Refrigerator" width="200" height="180">
+							<h2>Refrigerator</h2>
+							<ul>
+								<li>Not cooling</li>
+								<li>Water leaks</li>
+								<li>Ice maker not working</li>
+							</ul>
+						</td>
+						<!-- col2 -->
+						<td>
+							<img class="service-image" src="/images/washer.jpeg" alt="Washer and dryer" width="200" height="180">
+							<h2>Washer &amp; Dryer</h2>
+							<ul>
+								<li>Not draining</li>
+								<li>Not spinning</li>
+								<li>Dryer not heating</li>
+							</ul>
+						</td>
+						<!-- col3 -->
+						<td> 
+							<img class="service-image" src="/images/stove.jpeg" alt="Stove and oven" width="200" height="180">
+							<h2>Stove &amp; Oven</h2>
+							<ul>
+								<li>Burner not igniting</li>
+								<li>Uneven temperature</li>
+								<li>Oven not heating</li>
+							</ul>
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>
 
-				.headline {
-					font-size: 29px !important;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		<table role="presentation" class="email-wrapper" width="100%">
-			<tr>
-				<td class="email-content">
-					<table role="presentation" class="email-container" width="600">
-						<tr>
-							<td class="brand-section">
-								<img
-									class="logo-image"
-									src="images/logo.jpeg"
-									alt="Roble Appliance Repair logo"
-									width="100"
-									height="100"
-								>
-							</td>
-						</tr>
-						<tr>
-							<td class="headline-section">
-								<h1 class="headline">Is Your Appliance Giving You Trouble?</h1>
-							</td>
-						</tr>
-						<tr>
-							<td>
-								<img
-									class="hero-image"
-									src="images/appliance-bg-photo.jpg"
-									alt="Kitchen appliances including a refrigerator, stove, and washer"
-									width="600"
-								>
-							</td>
-						</tr>
-						<tr>
-							<td class="intro-section">
-								<p>When your refrigerator, washer, dryer, or range stops working, Roble Appliance Repair gets your home back on track.</p>
-								<p>We provide dependable repairs, clear estimates, and friendly local service.</p>
-							</td>
-						</tr>
-						<tr>
-							<td class="action-section">
-								<a class="cta-button" href="#">Schedule a Repair</a>
-							</td>
-						</tr>
-						<tr>
-							<td class="background-callout">
-								<h2>Same-Day Service Available</h2>
-								<p>Call early and we will do our best to help the same day.</p>
-							</td>
-						</tr>
-						<tr>
-							<td class="footer-section">
-								<p><strong>Roble Appliance Repair</strong></p>
-								<p>Reliable help for the appliances you rely on.</p>
-								<p><a href="#unsubscribe">Unsubscribe</a></p>
-							</td>
-						</tr>
-					</table>
+		<!-- cta section -->
+		<tr class="cta-row">
+			<td>
+				<p></p>
+				<button class="contact-btn">Contact Us!</button>
+			</td>
+		</tr>
+		<!-- footer -->
+		<tfoot>
+			<tr style="text-align: center;">
+				<td>
+					<p>Roble Appliance Repair</p>
+					<p>Reliable help for the appliances you rely on.</p>
+					<a href="#">Unsubscribe</a>
 				</td>
 			</tr>
-		</table>
-	</body>
+		</tfoot>
+	</table>
+</body>
 </html>
