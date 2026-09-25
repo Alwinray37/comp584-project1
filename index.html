@@ -14,7 +14,10 @@
 			font-family: Georgia, 'Times New Roman', Times, serif;
 			width: 100%;
 			min-height: 100vh;
-			background-color: rgb(245, 237, 220);
+			background-color: #dff4f2;
+			background-image: linear-gradient(120deg, #dff4f2, #cfe8ff, #d9f2df, #bfe3d0);
+			background-size: 300% 300%;
+			animation: background-gradient-shift 8s ease infinite;
 			padding: 2rem 0;
 		}
 		.email-wrapper{
@@ -23,6 +26,7 @@
 			background-color: white;
 			/* padding: 1rem; */
 			border-spacing: 0;
+			border-collapse: collapse;
 		}
 		td{
 			padding-bottom: 1rem;
@@ -40,9 +44,14 @@
 			width: 100%;
 			border-collapse: collapse;
 			border-spacing: 0;
+			background-color: rgb(245, 237, 220) ;
 		}
 		.two-col-container td{
 			width: 50%;
+			padding: 0;
+		}
+		.two-col-container img{
+			display: block;
 		}
 		.two-col-container h1{
 			margin: 1rem;
@@ -64,17 +73,31 @@
 			display: block;
 		}
 		.contact-btn{
-			padding: 1rem;
+			display: inline-block;
+			min-width: 190px;
+			margin: 0.5rem;
+			padding: 0.9rem 1.5rem;
 			font-weight: bold;
-			border: 2px solid black;
+			font-size: 1rem;
+			text-align: center;
+			border-radius: 6px;
 			box-shadow: 0 0 0 0;
+			text-decoration: none;
+			transition: transform 0.2s, box-shadow 0.2s;
+		}
+		.call-btn{
+			border: 2px solid #213F2A;
 			background-color: #213F2A;
-			color: whitesmoke;
+			color: white;
+		}
+		.email-btn{
+			border: 2px solid #8A6B4C;
+			background-color: white;
+			color: #213F2A;
 		}
 		.contact-btn:hover{
-			transform: translate(-2px);
-			transition: 0.25s ease-in-out;
-			box-shadow: 4px 4px 0 0 black;
+			transform: translateY(-3px);
+			box-shadow: 4px 5px 0 #8A6B4C;
 			cursor: pointer;
 		}
 		h2{
@@ -88,6 +111,53 @@
 		}
 		.cta-row td{
 			text-align: center;
+			padding: 2.5rem 1rem;
+			background-color: rgb(245, 237, 220);
+			color: #213F2A;
+		}
+		.faq-list{
+			max-width: 620px;
+			margin: 0 auto 1.5rem;
+			text-align: left;
+		}
+		.faq-item{
+			margin-bottom: 0.75rem;
+			border: 2px solid #8A6B4C;
+			border-radius: 4px;
+			background-color: white;
+			overflow: hidden;
+		}
+		.faq-question{
+			display: block;
+			padding: 0.85rem 1rem;
+			background-color: #8A6B4C;
+			color: whitesmoke;
+			font-weight: bold;
+			cursor: pointer;
+		}
+		.faq-question::after{
+			content: "+";
+			float: right;
+		}
+		.faq-answer{
+			display: none;
+			padding: 0.25rem 1rem;
+			color: #213F2A;
+		}
+		.faq-item input[type="radio"]:checked + .faq-question{
+			background-color: #213F2A;
+		}
+		.faq-item input[type="radio"]:checked + .faq-question::after{
+			content: "−";
+		}
+		.faq-item input[type="radio"]:checked ~ .faq-answer{
+			display: block;
+		}
+		.cta-actions{
+			margin-top: 1rem;
+		}
+		.cta-actions .contact-btn{
+			margin: 0.5rem;
 		}
 
 		tfoot{
@@ -97,6 +167,63 @@
 		}
 		tfoot td{
 			padding: 0;
+		}
+		.cta-row input[type="radio"] {
+			position: absolute;
+			left: -9999px;
+		}
+
+		@keyframes background-gradient-shift{
+			0%{
+				background-position: 0% 50%;
+			}
+			50%{
+				background-position: 100% 50%;
+			}
+			100%{
+				background-position: 0% 50%;
+			}
+		}
+
+		@media screen and (max-width: 600px){
+			body{
+				padding: 0;
+			}
+			.email-wrapper{
+				width: 100% !important;
+			}
+			.two-col-container td,
+			.three-col-container td{
+				display: block;
+				width: 100% !important;
+			}
+			.two-col-container img{
+				height: 220px;
+				object-fit: cover;
+			}
+			.three-col-container{
+				border-spacing: 1rem;
+			}
+			.three-col-container td{
+				margin: 1rem 0;
+			}
+			h1{
+				font-size: 1.75rem;
+			}
+			h2{
+				font-size: 1.3rem;
+			}
+			p,
+			li,
+			.faq-question{
+				font-size: 0.95rem;
+			}
+		}
+
+		@media (prefers-reduced-motion: reduce){
+			body{
+				animation: none;
+			}
 		}
 	</style>
 </head>
@@ -171,8 +298,39 @@
 		<!-- cta section -->
 		<tr class="cta-row">
 			<td>
-				<p></p>
-				<button class="contact-btn">Contact Us!</button>
+				<h2>Frequently Asked Questions</h2>
+
+				<div class="faq-list">
+					<div class="faq-item">
+						<input type="radio" name="faq" id="faq-service" checked>
+						<label class="faq-question" for="faq-service">Which appliances do you repair?</label>
+						<div class="faq-answer">
+							<p>We repair refrigerators, washers, dryers, stoves, ovens, air-conditioning units, and other small household appliances.</p>
+						</div>
+					</div>
+
+					<div class="faq-item">
+						<input type="radio" name="faq" id="faq-appointment">
+						<label class="faq-question" for="faq-appointment">How do I schedule a repair?</label>
+						<div class="faq-answer">
+							<p>Call us for immediate assistance or email us with details about your appliance and the problem.</p>
+						</div>
+					</div>
+
+					<div class="faq-item">
+						<input type="radio" name="faq" id="faq-details">
+						<label class="faq-question" for="faq-details">What information should I provide?</label>
+						<div class="faq-answer">
+							<p>Include the appliance type, brand, model, and a brief description of the issue.</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="cta-actions">
+					<h2>Ready to Get Started?</h2>
+					<a class="contact-btn call-btn" href="tel:+18185550199">&#9742; Call Now</a>
+					<a class="contact-btn email-btn" href="mailto:repair@example.com?subject=Appliance%20Repair%20Inquiry&amp;body=Please%20describe%20your%20appliance%20and%20the%20problem%20you%20are%20experiencing.">&#9993; Email an Inquiry</a>
+				</div>
 			</td>
 		</tr>
 		<!-- footer -->
